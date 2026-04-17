@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "bunq-business": {
+      "command": "node",
+      "args": ["/opt/bunq-mcp-server/dist/index.js"],
+      "env": {
+        "BUNQ_API_KEY": "${BUNQ_API_KEY}",
+        "BUNQ_API_BASE_URL": "https://api.bunq.com/v1",
+        "SQLITE_PATH": "/opt/bunq-mcp-server/data/bunq-mcp.sqlite",
+        "BUNQ_CONTEXT_PATH": "/opt/bunq-mcp-server/data/bunq-context.json",
+        "WEBHOOK_ENABLED": "true",
+        "WEBHOOK_HOST": "0.0.0.0",
+        "WEBHOOK_PORT": "8787",
+        "WEBHOOK_PATH": "/webhook/bunq",
+        "WEBHOOK_SHARED_SECRET": "replace-me",
+        "ENABLE_PAYMENTS": "false",
+        "ENABLE_DRAFT_PAYMENTS": "false",
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}

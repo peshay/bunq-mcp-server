@@ -1,0 +1,33 @@
+{
+  "name": "bunq-mcp-server",
+  "version": "0.1.0",
+  "description": "Production-lean MCP server for bunq business backoffice workflows",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.5",
+    "csv-parse": "^5.6.0",
+    "dotenv": "^16.4.7",
+    "pino": "^9.7.0",
+    "uuid": "^11.1.0",
+    "zod": "^3.24.2",
+    "zod-to-json-schema": "^3.24.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.1.3"
+  }
+}

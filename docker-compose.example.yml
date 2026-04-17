@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  bunq-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bunq-mcp-server
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "8787:8787"
+    stdin_open: true
+    tty: true

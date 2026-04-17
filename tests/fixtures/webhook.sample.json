@@ -1,0 +1,23 @@
+{
+  "NotificationUrl": {
+    "event_type": "MUTATION",
+    "monetary_account_id": 1111,
+    "object": {
+      "Payment": {
+        "id": 9001,
+        "created": "2026-03-12 12:00:00.000000",
+        "updated": "2026-03-12 12:00:00.000000",
+        "amount": {
+          "value": "1200.00",
+          "currency": "EUR"
+        },
+        "description": "Payment INV-2026-001",
+        "merchant_reference": "INV-2026-001",
+        "counterparty_alias": {
+          "display_name": "Acme BV",
+          "iban": "NL91ABNA0417164300"
+        }
+      }
+    }
+  }
+}

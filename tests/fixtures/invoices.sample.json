@@ -1,0 +1,28 @@
+[
+  {
+    "invoiceId": "inv-2026-001",
+    "invoiceNumber": "2026-001",
+    "amount": 1200.0,
+    "currency": "EUR",
+    "issuedDate": "2026-03-01",
+    "dueDate": "2026-03-15",
+    "counterpartyName": "Acme BV",
+    "counterpartyIban": "NL91ABNA0417164300",
+    "reference": "INV-2026-001",
+    "status": "unpaid",
+    "direction": "incoming"
+  },
+  {
+    "invoiceId": "inv-2026-002",
+    "invoiceNumber": "2026-002",
+    "amount": 500.0,
+    "currency": "EUR",
+    "issuedDate": "2026-03-05",
+    "dueDate": "2026-03-20",
+    "counterpartyName": "Globex GmbH",
+    "counterpartyIban": "DE89370400440532013000",
+    "reference": "INV-2026-002",
+    "status": "unpaid",
+    "direction": "incoming"
+  }
+]
