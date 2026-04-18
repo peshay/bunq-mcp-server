@@ -173,3 +173,18 @@ Automated tests cover:
 ## Notes
 - This implementation is intentionally narrow and backoffice-oriented.
 - For production, run behind firewall/reverse-proxy controls and restrict inbound webhook origin + secrets.
+
+## Project Policy
+- Official distribution is source-first: users build images locally from this repository.
+- This project currently does not publish official Docker images to Docker Hub.
+- CI runs on GitHub Actions for type-check, tests, and build on pushes/PRs.
+
+## Governance
+- Contribution guide: [CONTRIBUTING.md](/Users/ahu/git/projects/bunq-mcp-server/CONTRIBUTING.md)
+- Security policy: [SECURITY.md](/Users/ahu/git/projects/bunq-mcp-server/SECURITY.md)
+- Repository AI-agent guide: [AGENTS.md](/Users/ahu/git/projects/bunq-mcp-server/AGENTS.md)
+- License: [LICENSE](/Users/ahu/git/projects/bunq-mcp-server/LICENSE)
+
+## AI Assistance
+- This repository may include AI-assisted code.
+- Every change must still pass human review before merge.
