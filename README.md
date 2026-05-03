@@ -1,4 +1,9 @@
 # bunq Business MCP Server
+
+> Read-first MCP integration for bunq with conservative safety boundaries for business backoffice workflows.
+
+[![Support via bunq](https://img.shields.io/badge/Support-bunq-00A1E0?style=flat-square&logo=bunq&logoColor=white)](https://bunq.me/ahu)
+
 Production-lean MCP server for a self-hosted bunq Business backoffice workflow.
 
 It is focused on:
@@ -184,6 +189,10 @@ Automated tests cover:
 - Security policy: [SECURITY.md](/Users/ahu/git/projects/bunq-mcp-server/SECURITY.md)
 - Repository AI-agent guide: [AGENTS.md](/Users/ahu/git/projects/bunq-mcp-server/AGENTS.md)
 - License: [LICENSE](/Users/ahu/git/projects/bunq-mcp-server/LICENSE)
+
+## Support
+
+Voluntary support helps fund ongoing freelance maintenance of this project. Support payments are appreciated but do not automatically create an entitlement to support, feature delivery, consulting, SLA, or invoice-based engagement.
 
 ## AI Assistance
 - This repository may include AI-assisted code.
