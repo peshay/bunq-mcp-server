@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   test-and-build:
@@ -29,8 +30,14 @@ jobs:
       - name: Type check
         run: npm run check
 
-      - name: Unit and acceptance tests
-        run: npm test
+      - name: Unit and acceptance tests with coverage
+        run: npm run test:ci
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v4
+        with:
+          use_oidc: true
+          files: ./coverage/lcov.info
 
       - name: Build
         run: npm run build
