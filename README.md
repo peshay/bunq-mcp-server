@@ -1,4 +1,13 @@
 # bunq Business MCP Server
+
+> Read-first MCP integration for bunq with conservative safety boundaries for business backoffice workflows.
+
+[![CI](https://github.com/peshay/bunq-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/peshay/bunq-mcp-server/actions/workflows/ci.yml)
+[![Node.js](https://img.shields.io/badge/Node.js-22%2B-5FA04E?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![License](https://img.shields.io/github/license/peshay/bunq-mcp-server)](LICENSE)
+
+[![Support via bunq](https://img.shields.io/badge/Support-bunq-00A1E0?style=flat-square&logo=bunq&logoColor=white)](https://bunq.me/ahu)
+
 Production-lean MCP server for a self-hosted bunq Business backoffice workflow.
 
 It is focused on:
@@ -24,13 +33,13 @@ It uses the official bunq API directly and defaults to read-only behavior.
 - Dockerized runtime
 
 ## Project Layout
-- [src/index.ts](/Users/ahu/git/projects/bunq-mcp-server/src/index.ts)
-- [src/mcp/server.ts](/Users/ahu/git/projects/bunq-mcp-server/src/mcp/server.ts)
-- [src/bunq/client.ts](/Users/ahu/git/projects/bunq-mcp-server/src/bunq/client.ts)
-- [src/db/database.ts](/Users/ahu/git/projects/bunq-mcp-server/src/db/database.ts)
-- [src/reconciliation/engine.ts](/Users/ahu/git/projects/bunq-mcp-server/src/reconciliation/engine.ts)
-- [src/webhook/server.ts](/Users/ahu/git/projects/bunq-mcp-server/src/webhook/server.ts)
-- [ARCHITECTURE.md](/Users/ahu/git/projects/bunq-mcp-server/ARCHITECTURE.md)
+- [src/index.ts](src/index.ts)
+- [src/mcp/server.ts](src/mcp/server.ts)
+- [src/bunq/client.ts](src/bunq/client.ts)
+- [src/db/database.ts](src/db/database.ts)
+- [src/reconciliation/engine.ts](src/reconciliation/engine.ts)
+- [src/webhook/server.ts](src/webhook/server.ts)
+- [ARCHITECTURE.md](ARCHITECTURE.md)
 
 ## Setup (Local)
 1. Install dependencies:
@@ -75,7 +84,7 @@ docker compose up --build
 
 ## OpenClaw MCP Client Config
 Example config:
-- [examples/openclaw.mcp.json](/Users/ahu/git/projects/bunq-mcp-server/examples/openclaw.mcp.json)
+- [examples/openclaw.mcp.json](examples/openclaw.mcp.json)
 
 ## Implemented MCP Tools (Phase 1)
 - `list_accounts`
@@ -156,10 +165,10 @@ npm run build
 ```
 
 Fixtures:
-- [tests/fixtures/invoices.sample.json](/Users/ahu/git/projects/bunq-mcp-server/tests/fixtures/invoices.sample.json)
-- [tests/fixtures/invoices.sample.csv](/Users/ahu/git/projects/bunq-mcp-server/tests/fixtures/invoices.sample.csv)
-- [tests/fixtures/invoices.sample.sqlite](/Users/ahu/git/projects/bunq-mcp-server/tests/fixtures/invoices.sample.sqlite)
-- [tests/fixtures/webhook.sample.json](/Users/ahu/git/projects/bunq-mcp-server/tests/fixtures/webhook.sample.json)
+- [tests/fixtures/invoices.sample.json](tests/fixtures/invoices.sample.json)
+- [tests/fixtures/invoices.sample.csv](tests/fixtures/invoices.sample.csv)
+- [tests/fixtures/invoices.sample.sqlite](tests/fixtures/invoices.sample.sqlite)
+- [tests/fixtures/webhook.sample.json](tests/fixtures/webhook.sample.json)
 
 ## Acceptance Coverage
 Automated tests cover:
@@ -180,10 +189,14 @@ Automated tests cover:
 - CI runs on GitHub Actions for type-check, tests, and build on pushes/PRs.
 
 ## Governance
-- Contribution guide: [CONTRIBUTING.md](/Users/ahu/git/projects/bunq-mcp-server/CONTRIBUTING.md)
-- Security policy: [SECURITY.md](/Users/ahu/git/projects/bunq-mcp-server/SECURITY.md)
-- Repository AI-agent guide: [AGENTS.md](/Users/ahu/git/projects/bunq-mcp-server/AGENTS.md)
-- License: [LICENSE](/Users/ahu/git/projects/bunq-mcp-server/LICENSE)
+- Contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Security policy: [SECURITY.md](SECURITY.md)
+- Repository AI-agent guide: [AGENTS.md](AGENTS.md)
+- License: [LICENSE](LICENSE)
+
+## Support
+
+Voluntary support helps fund ongoing freelance maintenance of this project. Support payments are appreciated but do not automatically create an entitlement to support, feature delivery, consulting, SLA, or invoice-based engagement.
 
 ## AI Assistance
 - This repository may include AI-assisted code.
