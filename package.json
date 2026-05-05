@@ -10,7 +10,8 @@
     "start": "node dist/index.js",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "test:ci": "vitest run --coverage"
   },
   "engines": {
     "node": ">=22"
@@ -28,6 +29,7 @@
     "@types/node": "^22.13.10",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
-    "vitest": "^3.1.3"
+    "vitest": "^3.1.3",
+    "@vitest/coverage-v8": "^3.1.3"
   }
 }
