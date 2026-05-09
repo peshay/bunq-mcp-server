@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "check": "tsc --noEmit",
-    "test:ci": "vitest run --coverage"
+    "test:ci": "vitest run --coverage",
+    "check:public-artifacts": "tsx scripts/check-public-artifacts.ts"
   },
   "engines": {
     "node": ">=22"
