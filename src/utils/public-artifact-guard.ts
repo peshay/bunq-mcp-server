@@ -42,10 +42,6 @@ export function findPublicArtifactFindings(
     for (const match of content.matchAll(pattern)) {
       const value = match[0];
       const start = match.index;
-      if (!value || start === undefined) {
-        continue;
-      }
-
       const end = start + value.length;
       const overlaps = seenSpans.some(([seenStart, seenEnd]) => start < seenEnd && end > seenStart);
       if (overlaps) {

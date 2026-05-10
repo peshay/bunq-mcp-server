@@ -66,6 +66,7 @@ function isMainModule(): boolean {
   return invokedScript !== undefined && import.meta.url === pathToFileURL(invokedScript).href;
 }
 
+/* v8 ignore next 3 -- CLI entrypoint mutates process.exitCode; unit tests cover the scanner behavior directly. */
 if (isMainModule()) {
   process.exitCode = await runPublicArtifactCheck();
 }

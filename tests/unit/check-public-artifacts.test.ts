@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import {
   listTrackedPublicArtifactFiles,
@@ -6,6 +6,9 @@ import {
 } from '../../scripts/check-public-artifacts.js';
 
 describe('check-public-artifacts script', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
   it('filters tracked files to public artifacts', async () => {
     const files = await listTrackedPublicArtifactFiles(async (file, args) => {
       expect(file).toBe('git');
@@ -93,5 +96,20 @@ describe('check-public-artifacts script', () => {
     });
 
     expect(exitCode).toBe(0);
+  });
+
+  it('uses console.error as the default error writer', async () => {
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined);
+
+    const exitCode = await runPublicArtifactCheck({
+      args: ['README.md'],
+      readTextFile: async () => 'Do not publish /home/openclaw/project paths.\n',
+    });
+
+    expect(exitCode).toBe(1);
+    expect(consoleError.mock.calls).toEqual([
+      ['Public artifact guard found private path leaks:'],
+      ['- README.md: /home/openclaw/project'],
+    ]);
   });
 });
