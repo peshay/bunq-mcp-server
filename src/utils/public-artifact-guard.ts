@@ -5,13 +5,13 @@ export interface PublicArtifactFinding {
 }
 
 const PUBLIC_ARTIFACT_PATH_PATTERNS = [
+  /file:\/\/\/[^\s"'`<>]+/g,
   /(?<![A-Za-z])[A-Za-z]:[\\/][^\s"'`<>]+/g,
   /\/Users\/[^\s"'`<>]+/g,
+  /\/home\/openclaw\/[^\s"'`<>]+/g,
   /\/home\/[^\s"'`<>]+/g,
   /\/private\/var\/[^\s"'`<>]+/g,
-  /\/home\/openclaw\/[^\s"'`<>]+/g,
   /\.openclaw\/[^\s"'`<>]+/g,
-  /file:\/\/\/[^\s"'`<>]+/g,
 ];
 
 const PUBLIC_ARTIFACT_FILES = [
