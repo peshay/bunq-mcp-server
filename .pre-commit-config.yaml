@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: bunq-public-artifact-guard
+        name: bunq public artifact guard
+        entry: npm run check:public-artifacts --
+        language: system
+        files: '^(README\.md|ARCHITECTURE\.md|CONTRIBUTING\.md|SECURITY\.md|docker-compose\.example\.yml|package\.json|\.github/.*\.(yml|yaml)|examples/.*\.json)$'

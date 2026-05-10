@@ -39,5 +39,8 @@ jobs:
           use_oidc: true
           files: ./coverage/lcov.info
 
+      - name: Public artifact guard
+        run: npm run check:public-artifacts
+
       - name: Build
         run: npm run build
