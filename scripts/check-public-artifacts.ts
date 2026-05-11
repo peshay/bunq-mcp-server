@@ -1,16 +1,22 @@
-import { readFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
+import { readFile } from 'node:fs/promises';
+import { pathToFileURL } from 'node:url';
 import { promisify } from 'node:util';
 
 import {
   findPublicArtifactFindings,
   isPublicArtifactFile,
+  type PublicArtifactFinding,
 } from '../src/utils/public-artifact-guard.js';
 
 const execFileAsync = promisify(execFile);
 
-async function listTrackedFiles(): Promise<string[]> {
-  const { stdout } = await execFileAsync('git', ['ls-files']);
+type ExecFile = (file: string, args: string[]) => Promise<{ stdout: string }>;
+type ReadTextFile = (filePath: string, encoding: BufferEncoding) => Promise<string>;
+type WriteError = (message: string) => void;
+
+export async function listTrackedPublicArtifactFiles(exec: ExecFile = execFileAsync): Promise<string[]> {
+  const { stdout } = await exec('git', ['ls-files']);
   return stdout
     .split('\n')
     .map((line) => line.trim())
@@ -18,14 +24,26 @@ async function listTrackedFiles(): Promise<string[]> {
     .filter(isPublicArtifactFile);
 }
 
-async function main() {
-  const inputFiles = process.argv.slice(2).filter(Boolean);
-  const files = inputFiles.length > 0 ? inputFiles : await listTrackedFiles();
-  const findings = [] as ReturnType<typeof findPublicArtifactFindings>;
+export interface PublicArtifactCheckOptions {
+  args?: string[];
+  listFiles?: () => Promise<string[]>;
+  readTextFile?: ReadTextFile;
+  writeError?: WriteError;
+}
+
+export async function runPublicArtifactCheck({
+  args = process.argv.slice(2),
+  listFiles = listTrackedPublicArtifactFiles,
+  readTextFile = readFile,
+  writeError = (message: string) => console.error(message),
+}: PublicArtifactCheckOptions = {}): Promise<number> {
+  const inputFiles = args.filter(Boolean);
+  const files = inputFiles.length > 0 ? inputFiles : await listFiles();
+  const findings: PublicArtifactFinding[] = [];
 
   for (const filePath of files) {
     try {
-      const content = await readFile(filePath, 'utf8');
+      const content = await readTextFile(filePath, 'utf8');
       findings.push(...findPublicArtifactFindings(filePath, content));
     } catch {
       // Ignore unreadable files so deleted files or non-text blobs do not fail the hook.
@@ -33,14 +51,21 @@ async function main() {
   }
 
   if (findings.length === 0) {
-    return;
+    return 0;
   }
 
-  console.error('Public artifact guard found private path leaks:');
+  writeError('Public artifact guard found private path leaks:');
   for (const finding of findings) {
-    console.error(`- ${finding.filePath}: ${finding.match}`);
+    writeError(`- ${finding.filePath}: ${finding.match}`);
   }
-  process.exitCode = 1;
+  return 1;
 }
 
-await main();
+function isMainModule(): boolean {
+  const invokedScript = process.argv[1];
+  return invokedScript !== undefined && import.meta.url === pathToFileURL(invokedScript).href;
+}
+
+if (isMainModule()) {
+  process.exitCode = await runPublicArtifactCheck();
+}
