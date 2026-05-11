@@ -27,14 +27,25 @@ describe('public artifact guard', () => {
     ]);
   });
 
-  it('flags Windows absolute paths with backslashes and forward slashes', () => {
+  it('flags Windows local-user paths with backslashes', () => {
     const findings = findPublicArtifactFindings(
       'README.md',
-      'Avoid examples like C:\\Users\\alice\\project or C:/Users/alice/project in public docs.',
+      'Avoid examples like C:\\Users\\alice\\project in public docs.',
     );
 
     expect(findings.map((finding) => finding.match)).toEqual([
       'C:\\Users\\alice\\project',
+    ]);
+  });
+
+  it('flags Windows absolute paths with backslashes and forward slashes', () => {
+    const findings = findPublicArtifactFindings(
+      'README.md',
+      'Avoid examples like D:\\tmp\\project or C:/Users/alice/project in public docs.',
+    );
+
+    expect(findings.map((finding) => finding.match)).toEqual([
+      'D:\\tmp\\project',
       'C:/Users/alice/project',
     ]);
   });

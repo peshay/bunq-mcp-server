@@ -6,6 +6,7 @@ export interface PublicArtifactFinding {
 
 const PUBLIC_ARTIFACT_PATH_PATTERNS = [
   /file:\/\/\/[^\s"'`<>]+/g,
+  /(?<![A-Za-z])[A-Za-z]:\\\\Users\\\\[^\s"'`<>]+/g,
   /(?<![A-Za-z])[A-Za-z]:[\\/][^\s"'`<>]+/g,
   /\/Users\/[^\s"'`<>]+/g,
   /\/home\/openclaw\/[^\s"'`<>]+/g,
