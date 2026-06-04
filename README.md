@@ -191,7 +191,7 @@ Automated tests cover:
 ## Governance
 - Contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
 - Security policy: [SECURITY.md](SECURITY.md)
-- Repository AI-agent guide: [AGENTS.md](AGENTS.md)
+- AI-agent guide: [AGENTS.md](AGENTS.md)
 - License: [LICENSE](LICENSE)
 
 ## Support
