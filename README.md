@@ -6,7 +6,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-22%2B-5FA04E?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![License](https://img.shields.io/github/license/peshay/bunq-mcp-server)](LICENSE)
 
-[![Support via bunq](https://img.shields.io/badge/Support-bunq-00A1E0?style=flat-square&logo=bunq&logoColor=white)](https://bunq.me/ahu)
+[![Support via bunq](https://img.shields.io/badge/Support-bunq-00A1E0?style=flat-square&logo=bunq&logoColor=white)](https://bunq.me/ahuservices?description=bunq-mcp-server-maintenance-support)
 
 Production-lean MCP server for a self-hosted bunq Business backoffice workflow.
 
@@ -191,12 +191,12 @@ Automated tests cover:
 ## Governance
 - Contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
 - Security policy: [SECURITY.md](SECURITY.md)
-- Repository AI-agent guide: [AGENTS.md](AGENTS.md)
+- AI-agent guide: [AGENTS.md](AGENTS.md)
 - License: [LICENSE](LICENSE)
 
 ## Support
 
-Voluntary support helps fund ongoing freelance maintenance of this project. Support payments are appreciated but do not automatically create an entitlement to support, feature delivery, consulting, SLA, or invoice-based engagement.
+If this MCP server is useful to you, you can [support its ongoing maintenance via bunq](https://bunq.me/ahuservices?description=bunq-mcp-server-maintenance-support). Support is voluntary and appreciated, but does not create any entitlement to support, features, consulting, an SLA, or invoice-based work.
 
 ## AI Assistance
 - This repository may include AI-assisted code.
