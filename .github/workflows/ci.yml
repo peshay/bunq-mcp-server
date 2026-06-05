@@ -8,15 +8,18 @@ on:
 
 permissions:
   contents: read
-  id-token: write
 
 jobs:
   test-and-build:
     name: Check, Test, Build
     runs-on: ubuntu-latest
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -33,11 +36,9 @@ jobs:
       - name: Unit and acceptance tests with coverage
         run: npm run test:ci
 
-      - name: Upload coverage
-        uses: codecov/codecov-action@v4
-        with:
-          use_oidc: true
-          files: ./coverage/lcov.info
+      - name: SonarQube Scan
+        if: ${{ env.SONAR_TOKEN != '' }}
+        uses: SonarSource/sonarqube-scan-action@v8.1.0
 
       - name: Public artifact guard
         run: npm run check:public-artifacts
