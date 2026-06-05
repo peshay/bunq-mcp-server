@@ -3,6 +3,8 @@
 > Read-first MCP integration for bunq with conservative safety boundaries for business backoffice workflows.
 
 [![CI](https://github.com/peshay/bunq-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/peshay/bunq-mcp-server/actions/workflows/ci.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=peshay_bunq-mcp-server&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=peshay_bunq-mcp-server)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=peshay_bunq-mcp-server&metric=coverage)](https://sonarcloud.io/summary/new_code?id=peshay_bunq-mcp-server)
 [![Node.js](https://img.shields.io/badge/Node.js-22%2B-5FA04E?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![License](https://img.shields.io/github/license/peshay/bunq-mcp-server)](LICENSE)
 
